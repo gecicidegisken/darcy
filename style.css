@@ -10,8 +10,7 @@ body {
   margin: 50px auto 0 auto;
   padding: 20px;
 
-  /* 
-  width:50%;
+  /*   width: 50%;
   border: 5px solid yellow;
   border-top: 30px solid yellow; */
 }
@@ -28,4 +27,28 @@ body {
 }
 .link {
   color: purple;
+}
+.quote {
+  font-style: italic;
+  font-weight: 300;
+}
+.quote:nth-child(odd) {
+  color: orange;
+}
+.quote:nth-child(even) {
+  color: yellow;
+  font-weight: 200;
+}
+.option p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.options .option {
+  justify-self: left;
+  text-align: left;
+}
+.options .description {
+  justify-self: right;
+  text-align: right;
 }

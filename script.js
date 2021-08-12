@@ -12,7 +12,7 @@ checkCommand = function () {
 checkFlag = function () {
   if (input.innerText.substring(6) === "--about") {
     return 1;
-  } else if (input.innerText.substring(6) === "--blog") {
+  } else if (input.innerText.substring(6) === "--quotes") {
     return 2;
   } else if (input.innerText.substring(6) === "--contact") {
     return 3;
@@ -26,14 +26,9 @@ checkFlag = function () {
     return 7;
   }
 };
-aboutFlag = function () {
-  window.open("about.html", "_self");
-};
-homeFlag = function () {
-  window.open("index.html", "_self");
-};
-helpFlag = function () {
-  container.appendChild(options);
+
+runFlag = function (e) {
+  window.open(e, "_self");
 };
 
 input.addEventListener("keypress", function (e) {
@@ -41,25 +36,29 @@ input.addEventListener("keypress", function (e) {
     if (!checkCommand()) {
       //prompt command + "command not found"
       alert("Command not found");
-    } else if (checkCommand() && checkFlag() === 1) {
-      //navigate to the about me page
-      aboutFlag();
-    } else if (checkCommand() && checkFlag() === 2) {
-      //navigate to the blog
-      alert("blog flag worked");
-    } else if (checkCommand() && checkFlag() === 3) {
-      //navigate to the contact page
-      alert("contact flag worked");
-    } else if (checkCommand() && checkFlag() === 4) {
-      //navigate to the gui
-      alert("gui flag worked");
-    } else if (checkCommand() && checkFlag() === 5) {
-      //navigate to the authors page
-      alert("hilal flag worked");
-    } else if (checkCommand() && checkFlag() === 6) {
-      helpFlag();
-    } else if (checkCommand() && checkFlag() === 7) {
-      homeFlag();
+    } else if (checkCommand()) {
+      switch (checkFlag()) {
+        case 1:
+          runFlag("about.html");
+          break;
+        case 2:
+          runFlag("quotes.html");
+          break;
+        case 3:
+          runFlag("contact.html");
+          break;
+        case 4:
+          runFlag();
+          break;
+        case 5:
+          runFlag("developer.html");
+          break;
+        case 6:
+          runFlag();
+          break;
+        case 7:
+          runFlag("index.html");
+      }
     }
   }
 });
