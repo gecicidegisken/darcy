@@ -47,8 +47,6 @@ checkFlag = function (i) {
       return 6;
     case "--home":
       return 7;
-    case "--hack":
-      return 8;
   }
 };
 
@@ -98,8 +96,7 @@ input.addEventListener("keypress", function (e) {
           break;
         case 7:
           runFlag("index.html");
-        case 8:
-          runFlag("hack.html");
+
         default:
           notFound("flag", input.innerText.substring(6));
       }
